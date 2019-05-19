@@ -1,6 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
-import { Menu, Input, Button } from 'antd';
+import { Menu, Input, Button, Row, Col, Card, Avatar } from 'antd';
+import LoginForm from './LoginForm';
+
+const dummy = {
+  nickname: 'kevin',
+  Post: [],
+  Followings: [],
+  Followers: [],
+  isLoggedIn: false,
+};
 
 const AppLayout = ({ children }) => {
   return (
@@ -14,6 +23,26 @@ const AppLayout = ({ children }) => {
       </Menu>
       <Button><Link href="/signup"><a>Signup</a></Link></Button>
       {children}
+      <Row>
+        <Col xs={24} md={6}>
+          {
+            dummy.isLoggedIn ?
+              <Card
+                actions={[
+                  <div key="twit">Post <br/>{dummy.Post.length}</div>,
+                  <div key="twit">Following <br/>{dummy.Followings.length}</div>,
+                  <div key="twit">Followers <br/>{dummy.Followers.length}</div>,
+                ]}
+              >
+                <Card.Meta
+                  avatar={<Avatar>{dummy.nickname[0]}</Avatar>}
+                  title={dummy.nickname}
+                />
+              </Card> :
+              <LoginForm/>
+          }
+        </Col>
+      </Row>
     </div>
   )
 };
