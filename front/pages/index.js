@@ -8,7 +8,7 @@ const Home = () => {
       <Head>
         <title>Next SNS</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/antd/3.16.2/antd.css" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/antd/3.16.2/antd.js" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/antd/3.16.2/antd.js"></script>
       </Head>
       <AppLayout>
         <div>Hello, Next</div>
